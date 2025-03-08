@@ -267,7 +267,7 @@ const timeDisplay = document.getElementById('time-display-id'); // 这里的 'ti
         // 数据处理器 
         const processReleaseData = data => {
             document.title = document.title.replace('{{version}}', data.tag_name);
-            name = data.name.replace(/.*?_([\d.]+)/, '$1');
+            name = data.name.match(/([\d.]+)/g)[1];
             if (data.body) renderReleaseNotes(data.body);
  
             const fragment = document.createDocumentFragment();
