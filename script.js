@@ -275,7 +275,7 @@ const timeDisplay = document.getElementById('time-display-id'); // 这里的 'ti
                 const card = document.createElement('div');
                 card.className = 'download-item';
                 card.innerHTML = `
-                    <center><h2>${sanitizeHTML(/releaseA/.test(asset.name) ? '📦 共存版' : '🌟 标准版')}</h2></center>
+                    <center><h2>${sanitizeHTML(/releaseA/.test(asset.name) ? '📦 共存版' : '🌟 测试版')}</h2></center>
                     <p>版本：<code>${sanitizeHTML(asset.name)}</code></p>
                     <p>大小：${(asset.size / 1024 / 1024).toFixed(1)} MB</p>
                     <p>更新：${new Date(asset.updated_at).toLocaleString('zh-CN', { 
