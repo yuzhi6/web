@@ -256,36 +256,71 @@ const timeDisplay = document.getElementById('time-display-id'); // 这里的 'ti
         }
 
 
-// 发送请求获取 IP 并获取位置信息
-function getAndShowLocation() {
-    fetch('http://res.abeim.cn/api-ip_get?export=json')
-        .then(response => response.json())
-        .then(data => {
-            // 提取 IP 地址
-            const ip = data.ip;
-            // 发送 IP 到获取位置的接口
-            fetch(`https://collect.xmwxxc.com/collect/address/?ip=${ip}`)
-                .then(response => response.text())
-                .then(data => {
-                    // 解析返回的字符串，提取城市市区部分
-                    const locationStr = data;
-                    const start = locationStr.indexOf('你当前的位置:') + '你当前的位置:'.length;
-                    // 找到逗号的位置，即城市部分的结束位置
-                    const end = locationStr.indexOf(',', start);
-                    // 提取城市部分
-                    const city = locationStr.substring(start, end);
-                    // 只保留前六位
-                    const cityFirstSix = city.substring(0, 6);
-                    // 在页面上显示城市市区
-                    document.getElementById('location').innerHTML = cityFirstSix;
-                })
-                .catch(error => {
-                    console.error('获取位置数据时出错:', error);
-                });
-        })
-        .catch(error => {
-            console.error('获取 IP 时出错:', error);
-        });
-}
-
-getAndShowLocation();
+// 安全内容处理 
+        const sanitizeHTML = str => {
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        };
+ 
+        // 动态构建说明面板 
+        const renderReleaseNotes = bodyText => {
+            const container = document.createElement('div');
+            container.className = 'release-body';
+            container.innerHTML = `
+                <p>📝 版本更新说明（${new Date().toLocaleDateString('zh-CN')}发布）</p>
+                <i>${sanitizeHTML(bodyText)}</i>
+            `;
+            document.getElementById('release-notes').appendChild(container);
+        };
+ 
+        // 数据处理器 
+        const processReleaseData = data => {
+            document.title = document.title.replace('{{version}}', data.tag_name);
+            if (data.body) renderReleaseNotes(data.body);
+ 
+            const fragment = document.createDocumentFragment();
+            data.assets.forEach(asset => {
+                const card = document.createElement('div');
+                card.className = 'download-item';
+                card.innerHTML = `
+                    <center><h2>${sanitizeHTML(/releaseA/.test(asset.name) ? '📦 共存版' : '🌟 标准版')}</h2></center>
+                    <p>名称：<code>${sanitizeHTML(asset.name)}</code></p>
+                    <p>大小：${(asset.size / 1024 / 1024).toFixed(1)} MB</p>
+                    <p>更新：${new Date(asset.updated_at).toLocaleString('zh-CN', { 
+                        timeZone: 'Asia/Shanghai',
+                        hour12: false 
+                    })}</p>
+                    <p>下载：${asset.download_count.toLocaleString()} 次</p>
+                    <center><a href="${asset.browser_download_url}" 
+                       class="download-button" 
+                       download="${asset.name}">
+                        ⬇️ 立即下载 
+                    </a></center>
+                `;
+                fragment.appendChild(card);
+            });
+            
+            document.getElementById('download-list').innerHTML = '';
+            document.getElementById('download-list').appendChild(fragment);
+        };
+ 
+        // 数据请求 
+        fetch('https://api.github.com/repos/gedoor/legado/releases/tags/beta')
+            .then(response => {
+                if (!response.ok) throw new Error(`[${response.status}] 数据获取失败`);
+                return response.json();
+            })
+            .then(processReleaseData)
+            .catch(error => {
+                document.getElementById('download-list').innerHTML = `
+                    <div class="error">
+                        ❌ 加载失败：${sanitizeHTML(error.message)}<br><br>
+                        <button onclick="window.location.reload()" 
+                                style="padding:12px 24px;margin-top:1rem;">
+                            🔄 点击重试 
+                        </button>
+                    </div>
+                `;
+            });
+    

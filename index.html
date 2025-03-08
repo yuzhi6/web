@@ -3,11 +3,13 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
-    <title>遇知的个人网页</title>
+    <title>遇知</title>
+ 
 </head>
 
 <body>
@@ -25,10 +27,10 @@
 
     <div class="big-card">
         <div class="container">
-            <img class="avatar" src="/images/tx.jpg" alt="头像">
+            <img class="avatar" src="images/tx.jpg" alt="头像">
             <div class="text-container">
                 <p style="font-size: 20px;">遇知</p>
-                <p id="copyText" style="font-size: 9px;color: #444444;"><img src="/images/qq.png" style="width: 10px;">123456789</p>
+                <p id="copyText" style="font-size: 9px;color: #444444;"><img src="images/qq.png" style="width: 10px;">123456789</p>
                 <div id="hitokoto_text" style="font-size: 9px;color: #444444;"></div>
             </div>
         </div>
@@ -52,9 +54,18 @@
                 </div>
             </div>
         </div>
-        
     </div>
+    
+    
     <div class="big-card additional-card">
+    <div class="nav-container">
+	  <div id="download-list">
+		<div class="loading">⌛ 正在获取版本信息...</div>
+	  <div id="release-notes"></div>
+    </div>
+   
+   
+  <div class="big-card additional-card">
 	  <span class="tag">链接</span>
         <div class="nav-container">
              <a href="https://baidu.com"><button class="glass-button">百度1</button></a>
@@ -63,11 +74,7 @@
             <a href="https://baidu.com"> <button class="glass-button">百度4</button></a>
         </div>
     </div>
-    <div class="big-card additional-card">
-        <p style="font-size:12px;text-align:center;margin-top: 0px;">备案号:<a href="https://beian.miit.gov.cn/" target="_blank" style="color: #5D82FF;">陕ICP备xxxxxxx号</a></p>
-        <p style="display: flex;justify-content: center;font-size: 10px;margin-bottom: 0px;"> 欢迎来自<span id="location"></span>的朋友</p>
-    </div>
-    <script src="/script.js"></script>
+   
 </body>
 
 </html>

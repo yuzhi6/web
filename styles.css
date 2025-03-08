@@ -13,7 +13,7 @@
 
 
 body {
-    background-image: url('/images/bg.jpg');
+    background-image: url('images/bg.jpg');
     background-size: 400% 400%;
     animation: softGradientAnimation 10s ease infinite;
     background-size: cover;
@@ -81,7 +81,7 @@ body {
 .signal-icons {
     width: 30px;
     height: 17px;
-    background-image: url('/images/signal-icons.png');
+    background-image: url('images/signal-icons.png');
     background-size: cover;
 
 }
@@ -89,7 +89,7 @@ body {
 .battery-icons {
     width: 34px;
     height: 17px;
-    background-image: url('/images/battery-icons.png');
+    background-image: url('images/battery-icons.png');
     background-size: cover;
     right: 0px;
 }
@@ -422,4 +422,11 @@ song-item:last-child {
 
 .song-item:hover {
     background-color: rgba(135, 206, 235, 0.3); 
+}
+
+i,.download-item p {
+    font-size: 16px;
+    color: #444444;
+    margin: 1px 0;
+    /* 减小了上下文字的间距 */
 }
