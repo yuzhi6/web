@@ -262,17 +262,7 @@ const timeDisplay = document.getElementById('time-display-id'); // 这里的 'ti
             div.textContent = str;
             return div.innerHTML;
         };
- 
-        // 动态构建说明面板 
-        const renderReleaseNotes = bodyText => {
-            const container = document.createElement('div');
-            container.className = 'release-body';
-            container.innerHTML = `
-                <p>📝 版本更新说明（${new Date().toLocaleDateString('zh-CN')}发布）</p>
-                <i>${sanitizeHTML(bodyText)}</i>
-            `;
-            document.getElementById('release-notes').appendChild(container);
-        };
+
  
         // 数据处理器 
         const processReleaseData = data => {
@@ -285,7 +275,7 @@ const timeDisplay = document.getElementById('time-display-id'); // 这里的 'ti
                 card.className = 'download-item';
                 card.innerHTML = `
                     <center><h2>${sanitizeHTML(/releaseA/.test(asset.name) ? '📦 共存版' : '🌟 标准版')}</h2></center>
-                    <p>名称：<code>${sanitizeHTML(asset.name)}</code></p>
+                    <p>名称：<code>${sanitizeHTML(asset.name.replace(/([\d.]+)/,"$1"))}</code></p>
                     <p>大小：${(asset.size / 1024 / 1024).toFixed(1)} MB</p>
                     <p>更新：${new Date(asset.updated_at).toLocaleString('zh-CN', { 
                         timeZone: 'Asia/Shanghai',
