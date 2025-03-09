@@ -182,6 +182,8 @@ introduce {
     width: 300px;
 }
 
+
+
 /* 弹窗动画 */
 .success-popup {
     opacity: 0;
@@ -398,9 +400,60 @@ song-item:last-child {
     background-color: rgba(135, 206, 235, 0.3); 
 }
 
-i,.download-item p {
+
+
+
+/* 新添加的样式 */
+.download-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+	box-sizing: border-box;
+}
+
+.download-item p {
+    width: 300px;
+	margin: 0;
+    padding: 5px 0;
+	padding-left: 100px; /* 增加左侧内边距，模拟对齐效果 */
+    }
+
+ /* 下载按钮交互 */
+.download-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 14px 32px;
+    background: linear-gradient(135deg, #2ea44f, #22863a);
+    color: white !important;
+    border-radius: 8px;
+    text-decoration: none;
     font-size: 16px;
-    color: #444444;
-    margin: 1px 0;
-    /* 减小了上下文字的间距 */
+    margin: 1.2rem auto;
+    gap: 8px;
+    transition: all 0.3s;
+}
+
+.download-button:hover {
+    box-shadow: 0 5px 15px rgba(46,164,79,0.3);
+ }
+ 
+/* 状态提示组件 */
+.loading { 
+    text-align: center; 
+    padding: 3rem;
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.error {
+    width: 80%;
+    background: #ffe3e3;
+    color: #dc3545;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 2rem auto;
 }
