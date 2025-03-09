@@ -1,409 +1,77 @@
-@charset "utf-8";
+   @charset "utf-8";
 
-/* 使用自定义字体 */
-@font-face {
-    font-family: "DIY font";
-    src: url("https://cdn.jsdelivr.net/gh/xiaoyanu/file-test@2021.11.24/more/HarmonyOS_Sans_SC_Medium.subset.woff2");
-}
-
-* {
-    font-family: "DIY font";
-    transition: all 0.2s;
-}
-
-
-body {
-    background-image: url('images/bg.jpg');
-    background-size: 400% 400%;
-    animation: softGradientAnimation 10s ease infinite;
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
-}
-
-@keyframes softGradientAnimation {
-    0% {
-        background-position: 0% 50%;
+    /* 使用自定义字体 */
+    @font-face {
+        font-family: "DIY font";
+        src: url("https://cdn.jsdelivr.net/gh/xiaoyanu/file-test@2021.11.24/more/HarmonyOS_Sans_SC_Medium.subset.woff2");
     }
 
-    50% {
-        background-position: 100% 50%;
+    * {
+        font-family: "DIY font";
+        transition: all 0.2s;
     }
 
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-.container {
-    position: relative;
-}
-
-.status-bar {
-    display: inline-block;
-    display: flex;
-    align-items: center;
-    background-color: rgba(255, 255, 255, 0.3);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-    color: #444444;
-    padding: 7px;
-    font-size: 14px;
-    width: 300px;
-    margin-bottom: 6px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.time {
-    justify-content: center;
-    font-weight: bold;
-
-    flex: 1;
-    text-align: left;
-}
-
-.right-content {
-    font-weight: bold;
-    text-align: right;
-    justify-content: flex-end;
-}
-
-
-
-.icons-container {
-    display: flex;
-    align-items: center;
-}
-
-.signal-icons {
-    width: 30px;
-    height: 17px;
-    background-image: url('images/signal-icons.png');
-    background-size: cover;
-
-}
-
-.battery-icons {
-    width: 34px;
-    height: 17px;
-    background-image: url('images/battery-icons.png');
-    background-size: cover;
-    right: 0px;
-}
-
-.tag {
-    margin: 5px;
-    display: inline-block;
-    padding: 8px 11px;
-
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    color: #403080;
-}
-
-/* 通用的毛玻璃样式 */
-.big-card {
-    width: 300px;
-    padding: 8px;
-    background-color: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(15px) saturate(150%) contrast(60%) brightness(120%);
-    background-clip: padding-box;
-    border-radius: 10px;
-
-    margin-bottom: 10px;
-}
-
-.container {
-
-    display: flex;
-    align-items: center;
-}
-
-.avatar {
-    width: 60px;
-    height: 60px;
-    padding: 1.5px;
-    border-radius: 50%;
-    background-color: lightgray;
-}
-
-.text-container {
-    display: flex;
-    flex-direction: column;
-    margin-left: 12px;
-}
-
-.text-container p {
-    margin: 1px 0;
-    /* 减小了上下文字的间距 */
-}
-
-/* 小卡片样式 */
-.small-card {
-    width: 300px;
-    padding: 8px;
-    background-color: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(15px) saturate(150%) contrast(60%) brightness(120%);
-    background-clip: padding-box;
-
-    border-radius: 8px;
-
-}
-
-.small-cards-container {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-}
-
-.small-card.music-player {
-    text-align: center;
-}
-
-.additional-card {
-    margin-top: 10px;
-}
-
-introduce {
-    margin: 0;
-}
-
-
-.BOTTOM {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 300px;
-}
-
-
-
-/* 弹窗动画 */
-.success-popup {
-    opacity: 0;
-    animation: slideDown 0.5s ease forwards;
-    font-size: 16px;
-    padding: 10px 15px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-}
-
-@keyframes slideDown {
-    from {
-        transform: translateY(-20px);
-        opacity: 0;
+    body {
+        background-image: url('images/bg.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
     }
 
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
+    
 
-.album-art {
-    display: block;
-    margin: 0 auto;
-    width: 110px;
-    height: 110px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.song-title {
-    margin: 3px;
-    text-align: center;
-    font-size: 15px;
-}
-
-.artist-name {
-    margin: 0 auto;
-    text-align: center;
-    font-size: 12px;
-    color: #444444;
-}
-
-.controls {
-    margin: 0px;
-    margin-top: 20px;
-}
-
-.progress-bar-container {
-    margin: 20px 0;
-}
-
-
-.progress-bar {
-    width: 70%;
-    height: 4px;
-    background-color: #ddd;
-    border-radius: 6px;
-    position: relative;
-    margin: 3px auto;
-}
-
-.progress {
-    height: 100%;
-    background-color: #5DC6FF;
-    border-radius: 4px;
-    width: 0%;
-    transition: width 0.3s ease;
-    margin: 0 auto;
-}
-
-
-.time-display {
-    font-size: 14px;
-    color: #888;
-}
-
-/* 播放器样式 */
-.control-btn {
-    background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px) saturate(150%) contrast(60%) brightness(120%);
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: none;
-    outline: none;
-    box-shadow: none;
-    margin-top: -12px;
-    transition: transform 0.3s ease;
-}
-
-.control-btn:hover {
-    transform: scale(1.1);
-}
-
-.fas,
-.material-icons {
-    font-size: 15px;
-    color: #fff;
-}
-
-.controls {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-}
-
-.control-btn.active {
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
-@keyframes rotate {
-    from {
-        transform: rotate(0deg);
+    .tag {
+        margin: 5px;
+        display: inline-block;
+        padding: 8px 11px;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        color: #403080;
     }
 
-    to {
-        transform: rotate(360deg);
+    .big-card {
+        width: 300px;
+        padding: 8px;
+        background-color: rgba(255, 255, 255, 0.2);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(15px) saturate(150%) contrast(60%) brightness(120%);
+        background-clip: padding-box;
+        border-radius: 10px;
+        margin-bottom: 10px;
     }
-}
 
-.album-art {
-    display: block;
-    margin: 0 auto;
-    width: 110px;
-    border-radius: 50%;
-    object-fit: cover;
-    animation: none;
-}
+    .container {
+        display: flex;
+        align-items: center;
+    }
 
-#time-display-id {
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    color: #333;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-text-align: center; 
-    margin: 0 auto; 
-}
+    .avatar {
+        width: 60px;
+        height: 60px;
+        padding: 1.5px;
+        border-radius: 50%;
+        background-color: lightgray;
+    }
 
-.popup {
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    min-width: 280px;
-    background: linear-gradient(to bottom, #5DC6FF, white);
-    border-radius: 20px;
-    padding: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    z-index: 9999;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+    .text-container {
+        display: flex;
+        flex-direction: column;
+        margin-left: 12px;
+    }
 
-.song-item {
-font-size: 12px;
-    color: #5D82FF;
-    padding: 5px 0;
-    border-bottom: 1px solid #ddd;
-    cursor: pointer;
-}
+    .text-container p {
+        margin: 1px 0;
+    }
 
-song-item:last-child {
-    border-bottom: none;
-}
-
-.song-item:hover {
-    background-color: #f0f0f0;
-}
-
-.popup {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    max-width: 80%;
-    max-height: 70%;
-    overflow-y: auto;
-}
-
-.popup button {
-    margin-top: 8px;
-    background-color: #87CEEB;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 10px;
-    color: white;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-}
-
-.popup button:hover {
-    background-color: #4682B4;
-}
-
-.popup img {
-    margin-top: 0 auto;
-    width: 80px;
-    height: 80px;
-}
-
-.song-item:hover {
-    background-color: rgba(135, 206, 235, 0.3); 
-}
+    .additional-card {
+        margin-top: 10px;
+    }
 
 
-
-
-/* 新添加的样式 */
+/* 阅读下载样式 */
 .download-item {
     display: flex;
     flex-direction: column;
