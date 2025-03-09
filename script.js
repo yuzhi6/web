@@ -45,7 +45,7 @@ fetch('https://v1.hitokoto.cn/?j=k')
                         hour12: false 
                     })}</p>
                     <p>▸ 下载：${asset.download_count.toLocaleString()} 次</p>
-                    <a href="${asset.browser_download_url}" 
+                    <a href="https://gh-proxy.ygxz.in/${asset.browser_download_url}" 
                        class="download-button" 
                        download="${asset.name}">
                         ⬇️ 立即下载 
