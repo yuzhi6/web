@@ -29,18 +29,31 @@
         padding: 8px 11px;
         border-top-right-radius: 10px;
         border-bottom-right-radius: 10px;
-        color: #403080;
+        color: #FFD700;
     }
 
     .big-card {
         width: 300px;
-        padding: 8px;
+        padding: 8px;		
         background-color: rgba(255, 255, 255, 0.2);
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         backdrop-filter: blur(15px) saturate(150%) contrast(60%) brightness(120%);
         background-clip: padding-box;
         border-radius: 10px;
         margin-bottom: 10px;
+    }
+	
+	.card-1 {      
+		background-image: url('images/bg-1.gif');
+    }
+	.card-2 {      
+		background-image: url('images/bg-2.png');
+    }
+	.card-3 {      
+		background-image: url('images/bg-3.png');
+    }
+	.card-4 {      
+		background-image: url('images/bg-4.png');
     }
 
     .container {
@@ -87,8 +100,13 @@
     width: 300px;
 	margin: 0;
     padding: 5px 0;
+	color: #FFD700;
 	padding-left: 100px; /* 增加左侧内边距，模拟对齐效果 */
     }
+
+i {
+  color: #FFD700; 
+ }
 
  /* 下载按钮交互 */
 .download-button {
@@ -124,4 +142,14 @@
     padding: 1.5rem;
     border-radius: 8px;
     margin: 2rem auto;
+}
+
+.big-card button {
+      padding: 10px 20px;
+      margin: 5px;
+      background-color: #2ea44f;
+      color: white !important;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
 }

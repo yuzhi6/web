@@ -14,20 +14,21 @@
 
 <body>
     
-    <div class="big-card">
+    <div class="big-card card-1">
         <div class="container">
             <img class="avatar" src="images/tx.jpg" alt="头像">
             <div class="text-container">
-                <p style="font-size: 20px;">遇知</p>
-                <div id="hitokoto_text" style="font-size: 9px;color: #444444;"></div>
+			  <p style="font-size: 20px; color: #FFD700;">遇知</p>
+			  <div id="hitokoto_text" style="font-size: 9px; color: #FFD700;"></div>
             </div>
         </div>
     </div>
-
+	
+  
     
-    <div class="big-card additional-card">
+    <div class="big-card card-2">
     <div class="nav-container">
-	  
+	  <h1 style="font-size: 22px; text-align: center; color: #FFD700;">阅读下载</h1>
 	  <div id="download-list">
 		<div class="loading">⌛ 正在获取版本信息...</div>
     </div>
@@ -35,15 +36,28 @@
 	</div>
    </div>
    
-	  <div class="big-card additional-card">
-		<span class="tag">友链</span>
-        <center>
-		  <a href="http://yuedu.miaogongzi.net/gx.html">喵公子</a>
-		  <a href="https://skybook.pages.dev/">明月照大江</a>
-		  <a href="https://qyyuapi.com/">xiaohan123</a>
-
-        </center>
+   
+  
+    <div class="big-card card-3">
+	  <span class="tag">资源</span>
+    <center>
+      <button onclick="window.location.href='legado://import/bookSource?src=https://cloud.blankwings.net/api/v3/file/get/4637/bookSource.json?sign=JlORmOzKoW7T2MwOP3Gtu07eaw1syD11tNsT_j_PCWA%3D%3A0'">
+        <strong>书源</strong>
+      </button>
+      <button onclick="window.location.href='legado://import/rssSource?src=https://cloud.blankwings.net/api/v3/file/get/4638/exportRssSource.json?sign=iyzFbMazFrPTAR58jpwmBuLCdvpVYj6_QbkPQ-7HS8M%3D%3A0'">
+        <strong>订阅源</strong>
+      </button>
+    </center>
+  </div>
+   
 	  
+    <div class="big-card card-4">
+		<span class="tag">相关</span>
+        <center>
+		  <a href="http://yuedu.miaogongzi.net/gx.html"><i>喵公子</i></a>
+		  <a href="https://skybook.pages.dev/"><i>明月照大江</i></a>
+		  <a href="https://qyyuapi.com/"><i>xiaohan123</i></a>
+        </center>
 	</div>
     
    <script src="script.js"></script>

@@ -37,7 +37,7 @@ fetch('https://v1.hitokoto.cn/?j=k')
                 const card = document.createElement('div');
                 card.className = 'download-item';
                 card.innerHTML = `
-                    <h2>${sanitizeHTML(/releaseA/.test(asset.name) ? '📦 共存版' : '🌟 测试版')}</h2>
+                    <h2 style="font-size: 18px; text-align: center; color: #FFD700;">${sanitizeHTML(/releaseA/.test(asset.name) ? '📦 共存版' : '🌟 测试版')}</h2>
                     <p>▸ 版本：<code>${sanitizeHTML(data.name.replace(/.*?_([\d.]+)/, '$1'))}</code></p>
                     <p>▸ 大小：${(asset.size / 1024 / 1024).toFixed(1)} MB</p>
                     <p>▸ 更新：${new Date(asset.updated_at).toLocaleString('zh-CN', { 
